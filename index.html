@@ -7,126 +7,699 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 引入Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .research-item { border-left: 4px solid #10b981; }
+        .fade-in { opacity: 0; transform: translateY(20px); animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        .member-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
 </head>
-<body class="font-sans leading-relaxed text-gray-800">
+<body class="font-sans leading-relaxed text-gray-800 bg-gray-50">
     <!-- 导航栏 -->
-    <nav class="bg-green-600 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-white text-2xl font-bold">
-                Big Data Analytics Research Group
+    <nav class="gradient-bg shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-white text-2xl font-bold flex items-center">
+                    <i class="fas fa-chart-line mr-3 text-yellow-300"></i>
+                    <span>Big Data Analytics Research Group</span>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="text-white hover:text-yellow-300 transition-colors duration-300 flex items-center"><i class="fas fa-home mr-2"></i>Home</a></li>
+                    <li><a href="#research" class="text-white hover:text-yellow-300 transition-colors duration-300 flex items-center"><i class="fas fa-microscope mr-2"></i>Research</a></li>
+                    <li><a href="#GroupLeader" class="text-white hover:text-yellow-300 transition-colors duration-300 flex items-center"><i class="fas fa-user-tie mr-2"></i>Group Leader</a></li>
+                    <li><a href="#GroupMember" class="text-white hover:text-yellow-300 transition-colors duration-300 flex items-center"><i class="fas fa-users mr-2"></i>Group Member</a></li>
+                    <li><a href="#joinus" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full transition-colors duration-300 flex items-center"><i class="fas fa-plus mr-2"></i>Join Us</a></li>
+                </ul>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <ul class="flex space-x-4">
-                <li><a href="#home" class="text-white hover:underline">Home</a></li>
-                <li><a href="#research" class="text-white hover:underline">Research</a></li>
-                <li><a href="#GroupLeader" class="text-white hover:underline">Group Leader</a></li>
-                <li><a href="#GroupMember" class="text-white hover:underline">Group Member</a></li>
-                <li><a href="#joinus" class="text-white hover:underline">Join Us</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- 主页横幅 -->
-    <section id="home" class="bg-cover bg-center h-screen relative" style="background-image: url('./bigdata2.jpg');">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="container mx-auto h-full flex items-center justify-center relative z-10">
-            <div class="text-center text-white">
-                <h1 class="text-5xl font-bold mb-4">Welcome to Big Data Analytics Research Group</h1>
-            <h1 class="text-5xl font-bold mb-4">@Macao Polytechnic University</h1>
-
-                <p class="text-xl">Harnessing Data to Drive Innovation</p>
+    <section id="home" class="bg-cover bg-center h-screen relative flex items-center" style="background-image: url('./bigdata2.jpg');">
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <div class="fade-in">
+                    <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                        Welcome to 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                            Big Data Analytics
+                        </span>
+                        <br>Research Group
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-light mb-8 text-blue-100">
+                        @Macao Polytechnic University
+                    </h2>
+                    <p class="text-xl md:text-2xl mb-12 text-gray-200 max-w-2xl mx-auto">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Harnessing Data to Drive Innovation
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#research" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-flask mr-2"></i>
+                            Explore Research
+                        </a>
+                        <a href="#joinus" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-users mr-2"></i>
+                            Join Our Team
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- 滚动指示器 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
         </div>
     </section>
 
     <!-- 简介 -->
-    <section class="py-16 bg-gray-100" id="home">
+    <section class="py-20 bg-white" id="introduction">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Introduction</h2>
-            <p class="text-lg leading-relaxed">The Big Data Analytics Research Group is an interdisciplinary team of researchers dedicated to harnessing the power of big data to tackle complex challenges and drive innovation across various domains, e.g., medical diagnosis & treatment, urban computing, finance, education, etc.</p>
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-3"></i>
+                        Introduction
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
+                    <p class="text-lg leading-relaxed text-gray-600 mb-8">
+                        The Big Data Analytics Research Group is an interdisciplinary team of researchers dedicated to harnessing the power of big data to tackle complex challenges and drive innovation across various domains, e.g., medical diagnosis & treatment, urban computing, finance, education, etc.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                        <div class="card-hover bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl border border-blue-200">
+                            <i class="fas fa-brain text-3xl text-blue-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">AI Innovation</h3>
+                            <p class="text-gray-600">Cutting-edge artificial intelligence solutions</p>
+                        </div>
+                        <div class="card-hover bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-xl border border-green-200">
+                            <i class="fas fa-database text-3xl text-green-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Big Data</h3>
+                            <p class="text-gray-600">Massive data processing and analytics</p>
+                        </div>
+                        <div class="card-hover bg-gradient-to-br from-purple-50 to-violet-100 p-6 rounded-xl border border-purple-200">
+                            <i class="fas fa-cogs text-3xl text-purple-600 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Innovation</h3>
+                            <p class="text-gray-600">Driving technological advancement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 研究领域 -->
-    <section class="py-16" id="research">
+    <section class="py-20 bg-gray-50" id="research">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Research Areas</h2>
-            <p class="text-lg leading-relaxed mb-4">Our group has been working on a wide range of topics related to big data analytics, including:</p>
-            <ul class="list-disc list-inside mb-4 text-lg leading-relaxed">
-                <li>Electronic Health Records (EHR) data mining (e.g., clinical risk prediction and disease prediction)</li>
-                <li>Spatio-temporal (ST) data mining (e.g., traffic flow prediction)</li>
-                <li>Drug recommendation (e.g., Chinese herbal prescription recommendation)</li>
-                <li>Financial risk assessment</li>
-                <li>Students’ learning behaviors evaluation</li>
-                <li>Semantic analysis from massive unstructured text data (e.g., E-commerce product rating)</li>
-            </ul>
-            <p class="text-lg leading-relaxed">Our expertise lies in developing advanced data mining algorithms and leveraging cutting-edge artificial intelligence models to extract meaningful insights from massive and diverse datasets.</p>
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-microscope text-blue-600 mr-3"></i>
+                        Research Areas
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Our group has been working on a wide range of topics related to big data analytics, including:
+                    </p>
+                </div>
+                    
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-emerald-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-heartbeat text-2xl text-red-500 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Medical AI</h3>
+                                <p class="text-gray-600">Electronic Health Records (EHR) data mining (e.g., clinical risk prediction and disease prediction)</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marked-alt text-2xl text-blue-500 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Spatio-temporal Analytics</h3>
+                                <p class="text-gray-600">Spatio-temporal (ST) data mining (e.g., traffic flow prediction)</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-pills text-2xl text-purple-500 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Drug Recommendation</h3>
+                                <p class="text-gray-600">Drug recommendation (e.g., Chinese herbal prescription recommendation)</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-yellow-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-2xl text-yellow-600 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Financial Analytics</h3>
+                                <p class="text-gray-600">Financial risk assessment</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-indigo-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-graduation-cap text-2xl text-indigo-500 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Educational Analytics</h3>
+                                <p class="text-gray-600">Students' learning behaviors evaluation</p>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="research-item card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-pink-500">
+                        <div class="flex items-start">
+                            <i class="fas fa-comments text-2xl text-pink-500 mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Text Analytics</h3>
+                                <p class="text-gray-600">Semantic analysis from massive unstructured text data (e.g., E-commerce product rating)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+                    <i class="fas fa-rocket text-3xl mb-4"></i>
+                    <p class="text-lg font-medium">
+                        Our expertise lies in developing advanced data mining algorithms and leveraging cutting-edge artificial intelligence models to extract meaningful insights from massive and diverse datasets.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 团队负责人 -->
-    <section class="py-16 bg-gray-100" id="GroupLeader">
+    <section class="py-20 bg-white" id="GroupLeader">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Group Leader</h2>
-            <div class="flex flex-col items-center">
-                <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=Qc5DlBsAAAAJ&citpid=1" alt="Wuman Luo" class="w-40 h-40 rounded-full mb-4">
-                <h3 class="text-2xl font-bold"><a href="https://fca.mpu.edu.mo/profile/luowuman">Wuman Luo</a></h3>
-                <p class="text-lg leading-relaxed mt-4">Dr. Wuman Luo is currently an Associate Professor at the Faculty of Applied Sciences of Macao Polytechnic University (MPU). She received the Ph.D degree in Computer Science and Engineering from Hong Kong University of Science and Technology (HKUST) in 2013. Her research interests include Artificial Intelligence and Data Analysis in Big Data, Spatial and Temporal data mining, Urban Computing, Medial AI, and Parallel Computing. Her research works have been published in the international well-known conferences and journals, including ACM SIGMOD, IEEE ICDM, ACM CIKM, IEEE ICDCS, DASFAA, IEEE JBHI, Frontiers of Computer Science, KAIS, etc. </p>
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-user-tie text-blue-600 mr-3"></i>
+                        Group Leader
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
+                </div>
+                
+                <div class="member-card card-hover bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="relative">
+                                <img src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=Qc5DlBsAAAAJ&citpid=1" alt="Wuman Luo" class="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-white">
+                                <div class="absolute -bottom-2 -right-2 bg-blue-600 text-white rounded-full p-3 shadow-lg">
+                                    <i class="fas fa-crown text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 text-center lg:text-left">
+                            <h3 class="text-3xl font-bold text-gray-800 mb-2">
+                                <a href="https://fca.mpu.edu.mo/profile/luowuman" class="hover:text-blue-600 transition-colors duration-300">
+                                    Dr. Wuman Luo
+                                </a>
+                            </h3>
+                            <div class="flex items-center justify-center lg:justify-start mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                    Associate Professor
+                                </span>
+                                <span class="ml-3 text-gray-500">
+                                    <i class="fas fa-university mr-2"></i>
+                                    MPU
+                                </span>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Dr. Wuman Luo is currently an Associate Professor at the Faculty of Applied Sciences of Macao Polytechnic University (MPU). She received the Ph.D degree in Computer Science and Engineering from Hong Kong University of Science and Technology (HKUST) in 2013.
+                            </p>
+                            <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                    <i class="fas fa-flask mr-2 text-purple-600"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Artificial Intelligence</span>
+                                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Big Data Analysis</span>
+                                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Spatial-Temporal Mining</span>
+                                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Urban Computing</span>
+                                    <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Medical AI</span>
+                                    <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Parallel Computing</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                <i class="fas fa-award mr-2 text-yellow-500"></i>
+                                Published in international conferences and journals including ACM SIGMOD, IEEE ICDM, ACM CIKM, IEEE ICDCS, DASFAA, IEEE JBHI, Frontiers of Computer Science, KAIS, etc.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 团队成员 -->
-    <section class="py-16" id="GroupMember">
+    <section class="py-20 bg-gray-50" id="GroupMember">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Group Members</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- 成员1 -->
-                <div class="flex flex-col items-center">
-                    <img src="https://ubilab.mpu.edu.mo/images/jacky_tang.png" alt="Su-Kit Tang" class="w-32 h-32 rounded-full mb-4">
-                    <h3 class="text-xl font-bold"><a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4BG%EF%BF%BD%7FFKU6&code=FCA">Su-Kit Tang, JACKY</a></h3>
-                    <!-- <p class="text-lg leading-relaxed mt-2"><strong>Biography:</strong> Dr. Su-kit Tang is an Associate Professor in Macao Polytechnic University (MPU)。他是计算机科学学士项目的课程协调员。</p> -->
-                    <p class="text-lg leading-relaxed mt-2"><strong>Research interests:</strong> Smart Cities, Internet of Things and Big Data, Networking, Blockchain                    </p>
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        <i class="fas fa-users text-blue-600 mr-3"></i>
+                        Group Members
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
+                    <p class="text-lg text-gray-600">Meet our talented research team</p>
                 </div>
-                <!-- 成员2 -->
-                <div class="flex flex-col items-center">
-                    <img src="./anyone.jpg" alt="Phillip Cheong" class="w-32 h-32 rounded-full mb-4">
-                    <h3 class="text-xl font-bold"><a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4BEj:FE:%EF%BF%BD&code=FCA">Phillip Cheong</a></h3>
-                    <!-- <p class="text-lg leading-relaxed mt-2"><strong>Biography:</strong> Dr. Cheong is a Professor in Macao Polytechnic University (MPU)。</p> -->
-                    <p class="text-lg leading-relaxed mt-2"><strong>Research interests:</strong> Computer Aided Design on Multirate High Frequency Signal Processing, Computer Network</p>
-                </div>
-                <!-- 成员3 -->
-                <div class="flex flex-col items-center">
-                    <img src="https://info.mpu.edu.mo/teldir2005/Profile/images/p1285.jpg" alt="Amang Kim" class="w-32 h-32 rounded-full mb-4">
-                    <h3 class="text-xl font-bold"><a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4CD%7FVJGM2&code=FCA">Amang Kim</a></h3>
-                    <!-- <p class="text-lg leading-relaxed mt-2"><strong>Biography:</strong> Dr. Song-Kyoo (Amang) Kim is an Associate Professor of Operations Research and Data Sciences in Macao Polytechnic University (MPU)。在来到澳门之前，他曾在阿联酋的多所大学任教。</p> -->
-                    <p class="text-lg leading-relaxed mt-2"><strong>Research interests: </strong>Operations research, Blockchain Governance Game, Stochastic Duel Games</p>
-                </div>
-                <!-- 成员4 -->
-                <div class="flex flex-col items-center">
-                    <img src="./TaoTan.jpg" alt="Tao Tan" class="w-32 h-32 rounded-full mb-4">
-                    <h3 class="text-xl font-bold"><a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4CETaIC@_&code=FCA">Tao Tan</a></h3>
-                    <!-- <p class="text-lg leading-relaxed mt-2"><strong>Biography:</strong> Dr. TAO TAN is an Associate Professor in Macao Polytechnic University (MPU)。</p> -->
-                    <p class="text-lg leading-relaxed mt-2"><strong>Research interests:</strong> Medical Image</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 成员1 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <img src="https://ubilab.mpu.edu.mo/images/jacky_tang.png" alt="Su-Kit Tang" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-blue-200">
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4BG%EF%BF%BD%7FFKU6&code=FCA" class="hover:text-blue-600 transition-colors duration-300">
+                                    Su-Kit Tang, JACKY
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Associate Professor
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-city w-4 mr-2 text-blue-500"></i>Smart Cities</div>
+                                    <div class="flex items-center"><i class="fas fa-network-wired w-4 mr-2 text-green-500"></i>IoT & Big Data</div>
+                                    <div class="flex items-center"><i class="fas fa-link w-4 mr-2 text-purple-500"></i>Blockchain</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员2 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <img src="./anyone.jpg" alt="Phillip Cheong" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-green-200">
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4BEj:FE:%EF%BF%BD&code=FCA" class="hover:text-blue-600 transition-colors duration-300">
+                                    Phillip Cheong
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Professor
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-microchip w-4 mr-2 text-blue-500"></i>CAD Signal Processing</div>
+                                    <div class="flex items-center"><i class="fas fa-network-wired w-4 mr-2 text-green-500"></i>Computer Network</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员3 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <img src="https://info.mpu.edu.mo/teldir2005/Profile/images/p1285.jpg" alt="Amang Kim" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-purple-200">
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4CD%7FVJGM2&code=FCA" class="hover:text-blue-600 transition-colors duration-300">
+                                    Amang Kim
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Associate Professor
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-chart-line w-4 mr-2 text-blue-500"></i>Operations Research</div>
+                                    <div class="flex items-center"><i class="fas fa-link w-4 mr-2 text-green-500"></i>Blockchain Governance</div>
+                                    <div class="flex items-center"><i class="fas fa-gamepad w-4 mr-2 text-purple-500"></i>Stochastic Games</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员4 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <img src="./TaoTan.jpg" alt="Tao Tan" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-red-200">
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://info.mpu.edu.mo/teldir2005/Profile/Profilephoto.asp?ref_no=4CETaIC@_&code=FCA" class="hover:text-blue-600 transition-colors duration-300">
+                                    Tao Tan
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Associate Professor
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-x-ray w-4 mr-2 text-red-500"></i>Medical Image</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员5 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <a href="https://csse.szu.edu.cn/pages/user/index?id=553">
+                                    <img src="./zhangdian.jpg" alt="Zhang Dian" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-yellow-200 hover:opacity-80 transition-opacity">
+                                </a>
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://csse.szu.edu.cn/pages/user/index?id=553" class="hover:text-blue-600 transition-colors duration-300">
+                                    Zhang Dian
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Professor
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-mobile-alt w-4 mr-2 text-blue-500"></i>Mobile Computing</div>
+                                    <div class="flex items-center"><i class="fas fa-chart-bar w-4 mr-2 text-green-500"></i>Data Analytics</div>
+                                    <div class="flex items-center"><i class="fas fa-heartbeat w-4 mr-2 text-red-500"></i>Smart Health</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 成员6 -->
+                    <div class="member-card card-hover bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                        <div class="text-center">
+                            <div class="relative mb-6">
+                                <a href="https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/JIANG-Landu/landujiang">
+                                    <img src="./landu.jpg" alt="Jiang Landu" class="w-32 h-32 rounded-full mx-auto object-cover border-4 border-indigo-200 hover:opacity-80 transition-opacity">
+                                </a>
+                                <div class="absolute -bottom-2 -right-2 bg-green-500 text-white rounded-full p-2 shadow-lg">
+                                    <i class="fas fa-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">
+                                <a href="https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/JIANG-Landu/landujiang" class="hover:text-blue-600 transition-colors duration-300">
+                                    Jiang Landu
+                                </a>
+                            </h3>
+                            <div class="mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-xs font-medium">
+                                    Senior Lecturer
+                                </span>
+                            </div>
+                            <div class="text-left bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-800 mb-2 flex items-center text-sm">
+                                    <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                    Research Interests
+                                </h4>
+                                <div class="space-y-1 text-sm text-gray-600">
+                                    <div class="flex items-center"><i class="fas fa-wifi w-4 mr-2 text-blue-500"></i>Mobile Computing</div>
+                                    <div class="flex items-center"><i class="fas fa-brain w-4 mr-2 text-green-500"></i>AI Solutions</div>
+                                    <div class="flex items-center"><i class="fas fa-eye w-4 mr-2 text-purple-500"></i>Computer Vision</div>
+                                    <div class="flex items-center"><i class="fas fa-hand-pointer w-4 mr-2 text-red-500"></i>HCI</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 加入我们 -->
-    <section class="py-16 bg-gray-100" id="joinus">
+    <section class="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700" id="joinus">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8">Join Us</h2>
-            <p class="text-lg leading-relaxed text-center">We are recruiting PhD students in Database/Data Mining/Artificial Intelligence and its applications. Applicants should have strong math and algorithmic skills. Good English writing skills are required. Contact Info: <a href="mailto:luowuman@mpu.edu.mo" class="text-blue-500 underline">luowuman@mpu.edu.mo</a></p>
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-white mb-6">
+                        <i class="fas fa-rocket text-yellow-300 mr-3"></i>
+                        Join Our Research Journey
+                    </h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-8"></div>
+                    
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-white/20">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="text-center">
+                                <div class="bg-white/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-graduation-cap text-2xl text-yellow-300"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">PhD Positions</h3>
+                                <p class="text-blue-100 text-sm">Database, Data Mining & AI Applications</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-brain text-2xl text-yellow-300"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">Research Focus</h3>
+                                <p class="text-blue-100 text-sm">Cutting-edge AI & Big Data Research</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-white/20 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-globe text-2xl text-yellow-300"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-white mb-2">Global Impact</h3>
+                                <p class="text-blue-100 text-sm">International Research Collaboration</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-left bg-white/10 rounded-xl p-6 mb-6">
+                            <h3 class="text-xl font-semibold text-white mb-4 flex items-center">
+                                <i class="fas fa-star text-yellow-300 mr-3"></i>
+                                Requirements
+                            </h3>
+                            <ul class="space-y-2 text-blue-100">
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Strong mathematical and algorithmic skills</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Excellent English writing abilities</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Passion for AI and data science research</li>
+                                <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i>Background in Computer Science or related fields</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="text-lg text-white mb-8">
+                            We are actively recruiting PhD students in Database, Data Mining, Artificial Intelligence and their applications. Join our dynamic research team and contribute to cutting-edge innovations that shape the future.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            <a href="mailto:luowuman@mpu.edu.mo" class="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                Contact Dr. Luo
+                            </a>
+                            <div class="flex items-center text-blue-100">
+                                <i class="fas fa-at mr-2"></i>
+                                <span class="text-sm">luowuman@mpu.edu.mo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+                            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+                                <i class="fas fa-university text-yellow-300 mr-3"></i>
+                                About MPU
+                            </h3>
+                            <p class="text-blue-100 text-sm">Macao Polytechnic University - A leading institution fostering innovation and excellence in research and education.</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+                            <h3 class="text-lg font-semibold text-white mb-3 flex items-center">
+                                <i class="fas fa-handshake text-yellow-300 mr-3"></i>
+                                Join Us
+                            </h3>
+                            <p class="text-blue-100 text-sm">Be part of groundbreaking research that addresses real-world challenges through advanced data analytics and AI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 页脚 -->
-    <footer class="bg-green-600 text-white py-4">
-        <div class="container mx-auto text-center">
-            &copy; Big Data Analytics Research Group, Faculty of Applied Sciences, Macao Polytechnic University. All rights reserved.
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-chart-line mr-3 text-blue-400"></i>
+                        Big Data Analytics Research Group
+                    </h3>
+                    <p class="text-gray-400 mb-4">Leading innovation in data science and artificial intelligence research at Macao Polytechnic University.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-link mr-2 text-green-400"></i>
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-home w-4 mr-2"></i>Home</a></li>
+                        <li><a href="#research" class="hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-microscope w-4 mr-2"></i>Research</a></li>
+                        <li><a href="#GroupLeader" class="hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-user-tie w-4 mr-2"></i>Group Leader</a></li>
+                        <li><a href="#GroupMember" class="hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-users w-4 mr-2"></i>Group Members</a></li>
+                        <li><a href="#joinus" class="hover:text-white transition-colors duration-300 flex items-center"><i class="fas fa-plus w-4 mr-2"></i>Join Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-red-400"></i>
+                        Contact Info
+                    </h4>
+                    <div class="space-y-3 text-gray-400">
+                        <div class="flex items-start">
+                            <i class="fas fa-university w-5 mr-3 mt-1 text-blue-400"></i>
+                            <div>
+                                <p class="font-medium text-white">Macao Polytechnic University</p>
+                                <p class="text-sm">Faculty of Applied Sciences</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope w-5 mr-3 text-green-400"></i>
+                            <a href="mailto:luowuman@mpu.edu.mo" class="hover:text-white transition-colors duration-300">luowuman@mpu.edu.mo</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe w-5 mr-3 text-purple-400"></i>
+                            <a href="https://www.mpu.edu.mo" class="hover:text-white transition-colors duration-300">www.mpu.edu.mo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; 2024 Big Data Analytics Research Group, Faculty of Applied Sciences, Macao Polytechnic University. All rights reserved.
+                    </p>
+                    <div class="flex items-center space-x-4 text-sm text-gray-400">
+                        <span class="flex items-center">
+                            <i class="fas fa-heart text-red-500 mr-1"></i>
+                            Made with passion for research
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-<script>window.parent.postMessage({ action: "ready" }, "*"); 
+<script>
+// 平滑滚动效果
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// 导航栏滚动效果
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        nav.classList.add('bg-opacity-95', 'backdrop-blur-lg');
+    } else {
+        nav.classList.remove('bg-opacity-95', 'backdrop-blur-lg');
+    }
+});
+
+// 动画效果
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, observerOptions);
+
+// 监听所有需要动画的元素
+document.querySelectorAll('.card-hover, .member-card, section > div').forEach(el => {
+    observer.observe(el);
+});
+
+// 预览相关代码
+window.parent.postMessage({ action: "ready" }, "*"); 
  
 window.console = new Proxy(console, {
   get(target, prop) {
