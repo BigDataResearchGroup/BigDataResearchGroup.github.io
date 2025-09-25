@@ -93,10 +93,11 @@
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
           <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
-          <a href="about.html" class="font-medium hover:text-primary transition-custom">About</a>
-          <a href="research.html" class="font-medium text-primary transition-custom">Research</a>
+
+          <a href="research.html" class="font-medium text-primary transition-custom">Research Interests</a>
           <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
           <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">Seminar</a>
         </div>
 
         <!-- Mobile menu button -->
@@ -109,10 +110,11 @@
       <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
         <div class="flex flex-col space-y-3">
           <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
-          <a href="about.html" class="font-medium hover:text-primary transition-custom">About</a>
-          <a href="research.html" class="font-medium text-primary transition-custom">Research</a>
+<!--          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">About</a>-->
+          <a href="research.html" class="font-medium text-primary transition-custom">Research Interests</a>
           <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
           <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">Seminar</a>
         </div>
       </div>
     </div>
@@ -205,55 +207,124 @@
 
           <div class="space-y-8">
             <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
-              <h3 class="text-xl font-semibold mb-3 text-dark">Multi-perspective patient representation learning for disease prediction on electronic health records. Knowledge and Information Systems</h3>
-              <p class="text-gray-600 mb-4  text-justify">
-              This project proposes a framework called multi-perspective patient representation extractor for disease prediction based on EHR. The goal is to effectively detect the useful information (e.g., long-term and short-term trends, variations, and correlations between trends and variations) of dynamic features for patient representation.               </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i>Disease prediction
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i>Patient representation
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i>Electronic health records
-                </span>
+              <h3 class="text-xl text-center font-semibold mb-6 text-dark">Medical Diagnosis</h3>
+
+              <!-- 自适应左右图片布局 -->
+              <div class="flex flex-col md:flex-row gap-6">
+                <!-- 左侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\disease prediction.png" alt="Disease prediction visualization" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Disease Prediction</h4>
+                </div>
+
+                <!-- 右侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\mortality prediction.png" alt="Electronic health records analysis" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Mortality Prediction</h4>
+                </div>
+              </div>
+            </div>
+
+<!--            <div class="space-y-8">-->
+            <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
+              <h3 class="text-xl text-center font-semibold mb-6 text-dark">Medical Diagnosis</h3>
+
+              <!-- 自适应左右图片布局 -->
+              <div class="flex flex-col md:flex-row gap-6">
+                <!-- 左侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\acupoint recommendations.png" alt="Disease prediction visualization" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Acupoint Recommendation</h4>
+                </div>
+
+                <!-- 右侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\herb recommendation.png" alt="Electronic health records analysis" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Herb Recommendation</h4>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
+              <h3 class="text-xl text-center font-semibold mb-3 text-dark">AI in Stomatology</h3>
+
+              <!-- 自适应左右图片布局 -->
+              <div class="flex flex-col md:flex-row gap-6">
+                <!-- 左侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\orthodontics.png" alt="Orthodontics" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Orthodontics</h4>
+                </div>
+
+                <!-- 右侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\tooth restoration.png" alt="Tooth restoration" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Tooth Restoration</h4>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
+              <h3 class="text-xl text-center font-semibold mb-3 text-dark">Sentiment Analysis</h3>
+
+              <!-- 自适应左右图片布局 -->
+              <div class="flex flex-col md:flex-row gap-6">
+                <!-- 左侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\AI-generated music.png" alt="Orthodontics" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">AI-Generated Music</h4>
+                </div>
+
+                <!-- 右侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\sentiment analysis.png" alt="Tooth restoration" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Sentiment Analysis</h4>
+                </div>
               </div>
             </div>
 
             <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
-              <h3 class="text-xl font-semibold mb-3 text-dark">A survey on personalized document-level sentiment analysis</h3>
-              <p class="text-gray-600 mb-4  text-justify">
-            This project designs an architecture called User Correlation Mining for personalized document-level sentiment analysis. This project is the first to adopt user correlation for personalized document-level analysis.               </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i> Document-level sentiment analysis
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i>Data mining
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i>Correlation analysis
-                </span>
+              <h3 class="text-xl text-center font-semibold mb-3 text-dark">Spatial-Temporal Data Mining</h3>
+
+              <!-- 自适应左右图片布局 -->
+              <div class="flex flex-col md:flex-row gap-6">
+                <!-- 左侧图片 -->
+                <div class="w-full md:w-1/2">
+                  <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                    <img src="\pic\traffic flow.png" alt="Orthodontics" class="w-full h-auto object-cover">
+                  </div>
+                  <h4 class="text-lg text-center font-semibold mt-3 text-dark">Traffic Flow Prediction</h4>
+                </div>
+
+
               </div>
             </div>
 
-            <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
-              <h3 class="text-xl font-semibold mb-3 text-dark">ST-RLNet: Spatio-Temporal Representation Learning for Multi-Step Traffic Flow Prediction</h3>
-              <p class="text-gray-600 mb-4  text-justify">
-              This project proposes a deep spatio-temporal representation learning network for multi-step traffic flow prediction. The objective is to effectively generate the traffic data representation for each step of prediction by better capturing the complex correlations (i.e., spatial, temporal and spatio-temporal correlations) among traffic data. </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i> Multi-step prediction
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i> Representation learning
-                </span>
-                <span class="inline-flex items-center text-sm px-3 py-1 bg-blue-100 text-primary rounded-full">
-                  <i class="fas fa-tag mr-1"></i> Spatio-temporal correlation
-                </span>
-              </div>
-            </div>
+
+
+
+<!--            <div class="project-card bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">-->
+<!--              <h3 class="text-xl font-semibold mb-3 text-dark">ST-RLNet: Spatio-Temporal Representation Learning for Multi-Step Traffic Flow Prediction</h3>-->
+
+<!--            </div>-->
           </div>
         </div>
       </div>
@@ -261,30 +332,30 @@
   </main>
 
   <!-- Footer -->
+<!-- Footer -->
   <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-4 md:px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div class="mb-6 md:mb-0">
-            <h3 class="text-xl font-bold mb-2">Wuman Luo</h3>
-            <p class="text-gray-400">Associate Professor, Macao Polytechnic University</p>
-          </div>
-          <div class="flex space-x-4">
+<!--      <div class="max-w-4xl mx-auto">-->
+<!--        <div class="flex flex-col md:flex-row justify-between items-center mb-8">-->
+<!--          <div class="mb-6 md:mb-0">-->
+<!--            <h3 class="text-xl font-bold mb-2">Wuman Luo</h3>-->
+<!--            <p class="text-gray-400">Associate Professor, Macao Polytechnic University</p>-->
+<!--          </div>-->
+<!--          <div class="flex space-x-4">-->
+<!--            <a href="https://scholar.google.com/citations?user=Qc5DlBsAAAAJ&hl=zh-TW" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom transform hover:scale-110">-->
+<!--              <i class="fas fa-graduation-cap"></i>-->
+<!--            </a>-->
+<!--            <a href="mailto:luowuman@mpu.edu.mo" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom transform hover:scale-110">-->
+<!--              <i class="fas fa-envelope"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
 
-            <a href="https://scholar.google.com/citations?user=Qc5DlBsAAAAJ&hl=zh-TW" class="w-10 h-10 rounded-xl bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom">
-              <i class="fas fa-graduation-cap"></i>
-            </a>
-            <a href="mailto:luowuman@mpu.edu.mo" class="w-10 h-10 rounded-xl bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-
-        <hr class="border-gray-700 mb-8">
+<!--        <hr class="border-gray-700 mb-8">-->
 
         <div class="flex flex-col md:flex-row justify-between items-center">
           <p class="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 Wuman Luo. All rights reserved.
+            Copyright © Big Data Analytics Research Group, FCA @ Macao Polytechnic University. All rights reserved.
           </p>
           <p class="text-gray-400 text-sm">
             Address: Faculty of Applied Sciences, Macao Polytechnic University, Macao

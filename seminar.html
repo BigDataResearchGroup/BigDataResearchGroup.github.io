@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Big Data Analytics Research Group - Seminar</title>
+
+  <meta name="author" content="Wuman Luo">
+  <meta name="description" content="Associate Professor at Macao Polytechnic University - Research in Big Data Analytics">
+
+  <link rel="alternate" type="application/rss+xml" title="Wuman Luo" href="https://bigdataresearchgroup.github.io/">
+  <link rel="shortcut icon" type="image/png" href="/pic/mpu.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#0A2463',
+            accent: '#3E92CC',
+            light: '#F5F7FA',
+            dark: '#2C3E50'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
+      .transition-custom {
+        transition: all 0.3s ease;
+      }
+      .card-bg-overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  </style>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .nav-scrolled {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+
+      <script>
+        const seminarData = [
+            {
+                "No.": 1,
+                "Date": "2024-09-26",
+                "Topic": "Patient Representation Learning for Medical Diagnosis & Spatio-Temporal Representation Learning for Traffic Flow PredictionInterpretable Deep Learning",
+                "Speaker": "Ziyue Yu & Lihua He",
+                "Venue": "N53, Wui Chi Building",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 2,
+                "Date": "2024-10-31",
+                "Topic": "Fine-Grained Personalized Patient Representation Learning & Deep Learning-Driven Credit Risk Prediction",
+                "Speaker": "KaKit Chio & Si Shi",
+                "Venue": "N53, Wui Chi Building",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 3,
+                "Date": "2024-11-28",
+                "Topic": "Deep Reinforcement Learning based Automated Annotation for Medical Images & Deep Learning Models for TCM Herb Recommendation Based on Continuous Patient Visit Data",
+                "Speaker": "Huijie Li & Xin Li",
+                "Venue": "A306",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 4,
+                "Date": "2024-12-19",
+                "Topic": "Prompt Engineering in Visual Language Models & Graph Attention Network and Dynamic Adjustment Mechanism for Drug Recommendation",
+                "Speaker": "Jianjing Wei & Xionghui Lai",
+                "Venue": "N51, Wui Chi Building",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 5,
+                "Date": "2025-02-27",
+                "Topic": "A Multi-Dimensional Feature Aggregation Module for Medical Image Segmentation & Environment-Aware Survival Predictor for Predicting Hospital Readmissions of Cardiac Patients",
+                "Speaker": "Yi Yu & Yuejing Zhai",
+                "Venue": "A321",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 6,
+                "Date": "2025-03-27",
+                "Topic": "Robust Partial Multi-Label Learning with EM-Enhanced Sample Purification and Distilled Label Consensus  & Efficient time-frequency dynamic graphical neural networks for multivariate time series analysis",
+                "Speaker": "Yanqiang Tu & Sibo Qi",
+                "Venue": "A321",
+                "Time": "15:00-16:30"
+            },
+          {
+            "No.": 7,
+            "Date": "2025-05-29",
+            "Topic": "An Adaptive Multi-Indicator Contrastive Predictive Coding Framework for Patient Representation Learning  & Advanced Techniques in Multivariate Time Series: Forecasting and Anomaly Detection",
+            "Speaker": "Hongxu Yuan & Xiaozhu Jing",
+            "Venue": "A321",
+            "Time": "15:00-16:30"
+          },
+          {
+            "No.": 8,
+            "Date": "2025-06-26",
+            "Topic": "Robust Federated Learning in Heterogeneous Environments",
+            "Speaker": "MA XIAO",
+            "Venue": "A320",
+            "Time": "15:00-16:30"
+
+          }
+        ];
+    </script>
+
+
+        <script>
+        const seminarData2 = [
+            {
+                "No.": 1,
+                "Date": "2024-11-07",
+                "Topic": "Exploration and Analysis of Graph Data",
+                "Speaker": "Prof. Ma Huifang",
+                "Venue": "LT3, Wui Chi Building",
+                "Time": "15:00-16:30"
+            },
+            {
+                "No.": 2,
+                "Date": "2024-04-25",
+                "Topic": "LLM for good & Smart environments: everyday smart objects & Hypergraph Neural Networks Based on Enclosing Subgraph Extraction for Link Prediction",
+                "Speaker": "Prof. Paola Salomoni & Prof. Silvia Mirri & Prof. Prof. Zhao Ying",
+                "Venue": "A318",
+                "Time": "15:00-16:30"
+            }
+        ];
+    </script>
+
+
+</head>
+
+<body class="font-inter bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 bg-white/95 backdrop-blur-sm">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+          <img src="\pic\mpu.png" alt="MPU Logo" class="h-8 w-8 rounded mr-2">
+          Big Data Analytics Research Group
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
+<!--          <a href="seminar.html" class="font-medium text-primary transition-custom">About</a>-->
+          <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
+          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
+          <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+          <a href="seminar.html" class="font-medium text-primary transition-custom">Seminar</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+        <div class="flex flex-col space-y-3">
+          <a href="index.html" class="font-medium text-primary transition-custom">Home</a>
+<!--          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">About</a>-->
+          <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
+          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
+          <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+          <a href="seminar.html" class="font-medium text-primary transition-custom">Seminar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="pt-32 pb-16 bg-gradient-to-br from-light to-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">Seminar</h1>
+<!--        <p class="text-xl text-gray-600">Associate Professor, Macao Polytechnic University</p>-->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container mx-auto px-4 py-8">
+        <!-- 标题部分 -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                Student Seminars
+            </h1>
+            <p class="text-gray-600">Student Seminar Series Schedule</p>
+        </div>
+
+        <!-- 详细安排表格 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">序号</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">日期</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">主题</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">演讲者</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">地点</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seminarTable" class="divide-y divide-gray-200">
+                        <!-- 表格内容将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 生成表格内容
+        function generateTable() {
+            const tableBody = document.getElementById('seminarTable');
+
+            seminarData.forEach((seminar, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200';
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
+                            ${seminar.Date}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
+                        <div class="font-medium">${seminar.Topic}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-green-500 mr-2"></i>
+                            ${seminar.Speaker}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                            ${seminar.Venue}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-purple-500 mr-2"></i>
+                            ${seminar.Time}
+                        </div>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 页面加载完成后生成表格
+        document.addEventListener('DOMContentLoaded', generateTable);
+    </script>
+
+
+
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- 标题部分 -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">
+                <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                Technical Seminars
+            </h1>
+            <p class="text-gray-600">Student Seminar Series Schedule</p>
+        </div>
+
+        <!-- 详细安排表格 -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full table-auto">
+                    <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">序号</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">日期</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">主题</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">演讲者</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">地点</th>
+                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seminarTable2" class="divide-y divide-gray-200">
+                        <!-- 表格内容将通过JavaScript动态生成 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 生成表格内容
+        function generateTable() {
+            const tableBody = document.getElementById('seminarTable2');
+
+            seminarData2.forEach((seminar, index) => {
+                const row = document.createElement('tr');
+                row.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200';
+
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
+                            ${seminar.Date}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
+                        <div class="font-medium">${seminar.Topic}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-user text-green-500 mr-2"></i>
+                            ${seminar.Speaker}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                            ${seminar.Venue}
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-purple-500 mr-2"></i>
+                            ${seminar.Time}
+                        </div>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 页面加载完成后生成表格
+        document.addEventListener('DOMContentLoaded', generateTable);
+    </script>
+
+
+  </main>
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 md:px-6">
+<!--      <div class="max-w-4xl mx-auto">-->
+<!--        <div class="flex flex-col md:flex-row justify-between items-center mb-8">-->
+<!--          <div class="mb-6 md:mb-0">-->
+<!--            <h3 class="text-xl font-bold mb-2">Wuman Luo</h3>-->
+<!--            <p class="text-gray-400">Associate Professor, Macao Polytechnic University</p>-->
+<!--          </div>-->
+<!--          <div class="flex space-x-4">-->
+<!--            <a href="https://scholar.google.com/citations?user=Qc5DlBsAAAAJ&hl=zh-TW" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom transform hover:scale-110">-->
+<!--              <i class="fas fa-graduation-cap"></i>-->
+<!--            </a>-->
+<!--            <a href="mailto:luowuman@mpu.edu.mo" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom transform hover:scale-110">-->
+<!--              <i class="fas fa-envelope"></i>-->
+<!--            </a>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <hr class="border-gray-700 mb-8">-->
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            Copyright © Big Data Analytics Research Group, FCA @ Macao Polytechnic University. All rights reserved.
+          </p>
+          <p class="text-gray-400 text-sm">
+            Address: Faculty of Applied Sciences, Macao Polytechnic University, Macao
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuButton.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-scrolled');
+        navbar.classList.remove('py-4');
+        navbar.classList.add('py-2');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.remove('py-2');
+        navbar.classList.add('py-4');
+      }
+    });
+  </script>
+</body>
+</html>
