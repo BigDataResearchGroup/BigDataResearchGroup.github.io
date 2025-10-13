@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Big Data Analytics Research Group - About</title>
+
+  <meta name="author" content="Wuman Luo">
+  <meta name="description" content="Associate Professor at Macao Polytechnic University - Research in Big Data Analytics">
+
+  <link rel="alternate" type="application/rss+xml" title="Wuman Luo" href="https://bigdataresearchgroup.github.io/">
+  <link rel="shortcut icon" type="image/png" href="/pic/mpu.png">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#0A2463',
+            accent: '#3E92CC',
+            light: '#F5F7FA',
+            dark: '#2C3E50'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-balance {
+        text-wrap: balance;
+      }
+      .transition-custom {
+        transition: all 0.3s ease;
+      }
+      .card-bg-overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  </style>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .nav-scrolled {
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="font-inter bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 bg-white/95 backdrop-blur-sm">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
+          <img src="\pic\mpu.png" alt="MPU Logo" class="h-8 w-8 rounded mr-2">
+          Big Data Analytics Research Group
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
+          <a href="about.html" class="font-medium text-primary transition-custom">About</a>
+          <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
+<!--          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>-->
+          <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
+        <div class="flex flex-col space-y-3">
+          <a href="index.html" class="font-medium text-primary transition-custom">Home</a>
+          <a href="about.html" class="font-medium hover:text-primary transition-custom">About</a>
+          <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
+<!--          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>-->
+          <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="pt-32 pb-16 bg-gradient-to-br from-light to-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">About Me</h1>
+        <p class="text-xl text-gray-600">Associate Professor, Macao Polytechnic University</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section class="py-16 md:py-24 bg-white" >
+
+        <div class="container mx-auto px-4 md:px-0" style="background-image: url('/pic/campus.png');">
+          <div class="h-full w-full card-bg-overlay p-6">
+          <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-10 items-center">
+              <div class="w-full md:w-1/3">
+                <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-custom">
+                  <img src="\pic\Amy.jpg" alt="Amy" class="w-full h-auto object-cover">
+                </div>
+              </div>
+              <div class="w-full md:w-2/3">
+                <div class="prose prose-lg max-w-none text-gray-700">
+
+                  <p class="mb-4 text-justify">
+                  Dr. Wuman Luo is currently an Associate Professor at the Faculty of Applied Sciences of Macao Polytechnic University (MPU). She received the Ph.D degree in Computer Science and Engineering from Hong Kong University of Science and Technology (HKUST) in 2013.
+                    Her research interests include Artificial Intelligence and Data Analysis in Big Data, Spatial and Temporal data mining, Urban Computing, Medial AI, and Parallel Computing. Her research works have been published in the international well-known conferences and journals,
+                    including ACM SIGMOD, IEEE ICDM, ACM CIKM, IEEE ICDCS, DASFAA, IEEE Journal of Biomedical and Health Informatics, Frontiers of Computer Science, etc.
+                  </p>
+                  <p class="mb-4 text-justify">
+                    She has been awarded as “2022 AI 2000 Most Influential Scholar Honorable Mention in Database” for her outstanding and
+                    vibrant contributions to this field between 2012 and 2021. Her paper “Smart healthcare: from IoT to cloud computer” was selected as Frontrunner 5000 Top Articles in Outstanding S&T Journals of China in 2018, another paper "MR-DBSCAN: a Scalable MapReduce-Based DBSCAN
+                    Algorithm for Heavily Skewed Data" won 2023 FCS (Frontiers of Computer Science) Outstanding Paper Award. She and her students’ paper "FGRL-Net: Fine-Grained Personalized Patient Representation Learning for Clinical Risk Prediction Based on EHRs" won Franklin V. Taylor
+                    Memorial Award – Finalist for the best paper in IEEE Conference on Systems, Man, and Cybernetics (IEEE SMC) 2023, another paper “Deep Learning for COVID-19 Prediction based on Blood Test” won Best Student Paper Award in Proceedings of the 6th International Conference
+                    on Internet of Things (IoTBDS) 2021.  She has served as Principal Investigator or Principal Participant for several research and industrial projects, such as National Basic Research Program of China (973 Program), National Natural Science Foundation of Youth Program,
+                    Demonstration Research and Application of Expressway Electronic Toll Collection System in Sichuan Province, Real-Time Toll System for Sichuan Province Mobile Telecommunication, etc.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>>
+    </section>
+
+    <!-- Professional Services -->
+    <section class="py-16 md:py-24 bg-light">
+      <div class="container mx-auto px-4 md:px-0"  style="background-image: url('/pic/background2.png');">
+        <div class="h-full w-full card-bg-overlay p-6">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-dark">Research Interests</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            <div class="flex items-start">
+              <div class="mr-4 mt-1 text-primary">
+
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Artificial Intelligence and Big Data Analytics</h3>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-4 mt-1 text-primary">
+
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Spatio-temporal Data Mining</h3>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-4 mt-1 text-primary">
+
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Medical AI</h3>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-4 mt-1 text-primary">
+
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Parallel Computing</h3>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-4 mt-1 text-primary">
+
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg mb-1">Urban Computing</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Invited Talks -->
+    <section class="py-16 md:py-24 bg">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="max-w-4xl mx-auto " style="background-image: url('/pic/background3.png');">
+          <div class="h-full w-full card-bg-overlay p-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-10 text-center text-dark">Work Experience</h2>
+
+          <div class="space-y-6">
+            <div class="flex flex-col md:flex-row gap-6  p-6 rounded-xl shadow-sm hover:shadow-md transition-custom">
+
+              <div class="w-full">
+                <h3 class="text-lg font-semibold mb-2 text-dark">10/2019 – now</h3>
+                <p class="text-gray-600 mb-2">Associate Professor, Faculty of Applied Sciences, Macao Polytechnic University</p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">06/2016 – 05/2017</h3>
+                <p class="text-gray-600 mb-2">Post-doctoral Fellow, Dept. of Computer and Information Science, FST, Univesity of Macau</p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">07/2013 – 01/2016</h3>
+                <p class="text-gray-600 mb-2">Research Assistant Professor, HKUST Fok Ying Tung Graduate School (HKUST FYTGS)  </p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">08/2008 – 01/2013</h3>
+                <p class="text-gray-600 mb-2">Research/Teaching Assistant, Dept. of Computer Science and Engineering, HKUST</p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">04/2000 – 07/2012</h3>
+                <p class="text-gray-600 mb-2">Lecturer, Sch. of Computer Science and Engineering, UESTC</p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">09/2004 – 06/2005</h3>
+                <p class="text-gray-600 mb-2">Visiting Scholar, Dept. of Computing Science, University of Alberta</p>
+
+                <h3 class="text-lg font-semibold mb-2 text-dark">07/1996 – 09/1997</h3>
+                <p class="text-gray-600 mb-2">Research Assistant, Computer Engineering Institute, Seismological Bureau of Sichuan Province</p>
+
+
+
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-xl font-bold mb-2">Wuman Luo</h3>
+            <p class="text-gray-400">Associate Professor, Macao Polytechnic University</p>
+          </div>
+          <div class="flex space-x-4">
+
+            <a href="https://scholar.google.com/citations?user=Qc5DlBsAAAAJ&hl=zh-TW" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="mailto:luowuman@mpu.edu.mo" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-custom">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <hr class="border-gray-700 mb-8">
+
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Wuman Luo. All rights reserved.
+          </p>
+          <p class="text-gray-400 text-sm">
+            Address: Faculty of Applied Sciences, Macao Polytechnic University, Macao
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuButton.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      } else {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('nav-scrolled');
+        navbar.classList.remove('py-4');
+        navbar.classList.add('py-2');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+        navbar.classList.remove('py-2');
+        navbar.classList.add('py-4');
+      }
+    });
+  </script>
+</body>
+</html>
