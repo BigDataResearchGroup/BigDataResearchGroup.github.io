@@ -55,6 +55,12 @@
       .card-bg-overlay {
         background-color: rgba(255, 255, 255, 0.9);
       }
+      .seminar-row {
+        cursor: pointer;
+      }
+      .gallery-img {
+        cursor: zoom-in;
+      }
     }
   </style>
 
@@ -77,101 +83,283 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* 研讨会弹窗样式 */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 800px;
+      position: relative;
+      animation: modalOpen 0.4s;
+    }
+
+    @keyframes modalOpen {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .close-btn {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+      color: black;
+      text-decoration: none;
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .modal-gallery img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .modal-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 图片放大弹窗样式 */
+    .image-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000; /* 确保在研讨会弹窗之上 */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+      animation: imageZoom 0.3s;
+    }
+
+    @keyframes imageZoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+
+    .image-modal-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border: 4px solid white;
+      border-radius: 5px;
+    }
+
+    .close-image {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* 导航箭头 */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      padding: 20px;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .nav-arrow:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .prev-arrow {
+      left: -60px;
+    }
+
+    .next-arrow {
+      right: -60px;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+      .close-image {
+        top: -30px;
+        right: 0;
+        font-size: 30px;
+      }
+
+      .nav-arrow {
+        font-size: 30px;
+        padding: 10px;
+      }
+
+      .prev-arrow {
+        left: 0;
+      }
+
+      .next-arrow {
+        right: 0;
+      }
+    }
   </style>
 
 
-      <script>
-        const seminarData = [
-            {
-            "No.": 1,
-            "Date": "2025-06-26",
-            "Topic": "Robust Federated Learning in Heterogeneous Environments",
-            "Speaker": "MA XIAO",
-            "Venue": "A320, Chi Un Building",
-            "Time": "15:00-16:30"
+    <script>
+    // 为研讨会数据添加图片信息
+    const seminarData = [
+      {
+        "No.": 1,
+        "Date": "2025-09-26",
+        "Topic": "Automated Radiology Report Generation: A Review of Recent Advances & A Multi-perspective Logic Informed Network for Regression Prediction of Hospital Length of Stay",
+        "Speaker": "Jianjing Wei & Yuejing Zhai",
+        "Venue": "N52, Chi Un Building",
+        "Time": "15:00-16:30",
+        "images": [
+          "/seminar/9.26, 2025/A.png",
+          "/seminar/9.26, 2025/B.png",
+          "/seminar/9.26, 2025/1.jpg",
+          "/seminar/9.26, 2025/2.jpg",
+          "/seminar/9.26, 2025/3.jpg",
+          "/seminar/9.26, 2025/4.jpg",
+        ],
+        "description": "This seminar featured two presentations on medical data analysis and prediction models, with interactive discussions on practical applications in healthcare settings."
+      },
+      {
+        "No.": 2,
+        "Date": "2025-06-26",
+        "Topic": "Robust Federated Learning in Heterogeneous Environments",
+        "Speaker": "MA XIAO",
+        "Venue": "A320, Chi Un Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 3,
+        "Date": "2025-05-29",
+        "Topic": "An Adaptive Multi-Indicator Contrastive Predictive Coding Framework for Patient Representation Learning & Advanced Techniques in Multivariate Time Series: Forecasting and Anomaly Detection",
+        "Speaker": "Hongxu Yuan & Xiaozhu Jing",
+        "Venue": "A321, Chi Un Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 4,
+        "Date": "2025-03-27",
+        "Topic": "Robust Partial Multi-Label Learning with EM-Enhanced Sample Purification and Distilled Label Consensus & Efficient time-frequency dynamic graphical neural networks for multivariate time series analysis",
+        "Speaker": "Yanqiang Tu & Sibo Qi",
+        "Venue": "A321, Chi Un Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 5,
+        "Date": "2025-02-27",
+        "Topic": "A Multi-Dimensional Feature Aggregation Module for Medical Image Segmentation & Environment-Aware Survival Predictor for Predicting Hospital Readmissions of Cardiac Patients",
+        "Speaker": "Yi Yu & Yuejing Zhai",
+        "Venue": "A321, Chi Un Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 6,
+        "Date": "2024-12-19",
+        "Topic": "Prompt Engineering in Visual Language Models & Graph Attention Network and Dynamic Adjustment Mechanism for Drug Recommendation",
+        "Speaker": "Jianjing Wei & Xionghui Lai",
+        "Venue": "N51, Wui Chi Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 7,
+        "Date": "2024-11-28",
+        "Topic": "Deep Reinforcement Learning based Automated Annotation for Medical Images & Deep Learning Models for TCM Herb Recommendation Based on Continuous Patient Visit Data",
+        "Speaker": "Huijie Li & Xin Li",
+        "Venue": "A306, Chi Un Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 8,
+        "Date": "2024-10-31",
+        "Topic": "Fine-Grained Personalized Patient Representation Learning & Deep Learning-Driven Credit Risk Prediction",
+        "Speaker": "KaKit Chio & Si Shi",
+        "Venue": "N53, Wui Chi Building",
+        "Time": "15:00-16:30",
+      },
+      {
+        "No.": 9,
+        "Date": "2024-09-26",
+        "Topic": "Patient Representation Learning for Medical Diagnosis & Spatio-Temporal Representation Learning for Traffic Flow PredictionInterpretable Deep Learning",
+        "Speaker": "Ziyue Yu & Lihua He",
+        "Venue": "N53, Wui Chi Building",
+        "Time": "15:00-16:30",
+      }
+    ];
+  </script>
 
-          },
-            {
-            "No.": 2,
-            "Date": "2025-05-29",
-            "Topic": "An Adaptive Multi-Indicator Contrastive Predictive Coding Framework for Patient Representation Learning  & Advanced Techniques in Multivariate Time Series: Forecasting and Anomaly Detection",
-            "Speaker": "Hongxu Yuan & Xiaozhu Jing",
-            "Venue": "A321, Chi Un Building",
-            "Time": "15:00-16:30"
-          },
-            {
-                "No.": 3,
-                "Date": "2025-03-27",
-                "Topic": "Robust Partial Multi-Label Learning with EM-Enhanced Sample Purification and Distilled Label Consensus  & Efficient time-frequency dynamic graphical neural networks for multivariate time series analysis",
-                "Speaker": "Yanqiang Tu & Sibo Qi",
-                "Venue": "A321, Chi Un Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 4,
-                "Date": "2025-02-27",
-                "Topic": "A Multi-Dimensional Feature Aggregation Module for Medical Image Segmentation & Environment-Aware Survival Predictor for Predicting Hospital Readmissions of Cardiac Patients",
-                "Speaker": "Yi Yu & Yuejing Zhai",
-                "Venue": "A321, Chi Un Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 5,
-                "Date": "2024-12-19",
-                "Topic": "Prompt Engineering in Visual Language Models & Graph Attention Network and Dynamic Adjustment Mechanism for Drug Recommendation",
-                "Speaker": "Jianjing Wei & Xionghui Lai",
-                "Venue": "N51, Wui Chi Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 6,
-                "Date": "2024-11-28",
-                "Topic": "Deep Reinforcement Learning based Automated Annotation for Medical Images & Deep Learning Models for TCM Herb Recommendation Based on Continuous Patient Visit Data",
-                "Speaker": "Huijie Li & Xin Li",
-                "Venue": "A306, Chi Un Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 7,
-                "Date": "2024-10-31",
-                "Topic": "Fine-Grained Personalized Patient Representation Learning & Deep Learning-Driven Credit Risk Prediction",
-                "Speaker": "KaKit Chio & Si Shi",
-                "Venue": "N53, Wui Chi Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 8,
-                "Date": "2024-09-26",
-                "Topic": "Patient Representation Learning for Medical Diagnosis & Spatio-Temporal Representation Learning for Traffic Flow PredictionInterpretable Deep Learning",
-                "Speaker": "Ziyue Yu & Lihua He",
-                "Venue": "N53, Wui Chi Building",
-                "Time": "15:00-16:30"
-            }
 
-        ];
-    </script>
-
-
-        <script>
-        const seminarData2 = [
-            {
-                "No.": 1,
-                "Date": "2024-11-07",
-                "Topic": "Exploration and Analysis of Graph Data",
-                "Speaker": "Prof. Ma Huifang",
-                "Venue": "LT3, Wui Chi Building",
-                "Time": "15:00-16:30"
-            },
-            {
-                "No.": 2,
-                "Date": "2024-04-25",
-                "Topic": "LLM for good & Smart environments: everyday smart objects & Hypergraph Neural Networks Based on Enclosing Subgraph Extraction for Link Prediction",
-                "Speaker": "Prof. Paola Salomoni & Prof. Silvia Mirri & Prof. Prof. Zhao Ying",
-                "Venue": "A318, Chi Un Building",
-                "Time": "15:00-16:30"
-            }
-        ];
-    </script>
+  <script>
+    const seminarData2 = [
+      {
+        "No.": 1,
+        "Date": "2024-11-07",
+        "Topic": "Exploration and Analysis of Graph Data",
+        "Speaker": "Prof. Ma Huifang",
+        "Venue": "LT3, Wui Chi Building",
+        "Time": "15:00-16:30",
+        "images": [
+          "/seminar-images/tech1-1.jpg",
+          "/seminar-images/tech1-2.jpg"
+        ],
+        "description": "Professor Ma delivered an insightful talk on graph data exploration techniques with real-world case studies and applications."
+      },
+      {
+        "No.": 2,
+        "Date": "2024-04-25",
+        "Topic": "LLM for good & Smart environments: everyday smart objects & Hypergraph Neural Networks Based on Enclosing Subgraph Extraction for Link Prediction",
+        "Speaker": "Prof. Paola Salomoni & Prof. Silvia Mirri & Prof. Zhao Ying",
+        "Venue": "A318, Chi Un Building",
+        "Time": "15:00-16:30",
+        "images": [
+          "/seminar-images/tech2-1.jpg",
+          "/seminar-images/tech2-2.jpg",
+          "/seminar-images/tech2-3.jpg"
+        ],
+        "description": "A multi-speaker technical seminar covering ethical AI, smart environments, and advanced graph neural network techniques."
+      }
+    ];
+  </script>
 
 
 </head>
@@ -182,16 +370,15 @@
     <div class="container mx-auto px-4 md:px-6">
       <div class="flex justify-between items-center">
         <a href="index.html" class="text-2xl font-bold text-primary flex items-center">
-          <img src="\pic\mpu.png" alt="MPU Logo" class="h-8 w-8 rounded mr-2">
+          <img src="/pic/mpu.png" alt="MPU Logo" class="h-8 w-8 rounded mr-2">
           Big Data Analytics Research Group
         </a>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8">
           <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
-<!--          <a href="seminar.html" class="font-medium text-primary transition-custom">About</a>-->
+<!--          <a href="about.html" class="font-medium text-primary transition-custom">About</a>-->
           <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
-          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
           <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
           <a href="seminar.html" class="font-medium text-primary transition-custom">Seminar</a>
         </div>
@@ -205,12 +392,11 @@
       <!-- Mobile Navigation -->
       <div id="mobile-menu" class="md:hidden hidden mt-4 pb-2">
         <div class="flex flex-col space-y-3">
-          <a href="index.html" class="font-medium text-primary transition-custom">Home</a>
-<!--          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">About</a>-->
+          <a href="index.html" class="font-medium hover:text-primary transition-custom">Home</a>
+<!--          <a href="about.html" class="font-medium text-primary transition-custom">About</a>-->
           <a href="research.html" class="font-medium hover:text-primary transition-custom">Research</a>
-          <a href="publications.html" class="font-medium hover:text-primary transition-custom">Publications</a>
           <a href="people.html" class="font-medium hover:text-primary transition-custom">People</a>
-          <a href="seminar.html" class="font-medium text-primary transition-custom">Seminar</a>
+          <a href="seminar.html" class="font-medium hover:text-primary transition-custom">Seminar</a>
         </div>
       </div>
     </div>
@@ -221,185 +407,356 @@
     <div class="container mx-auto px-4 md:px-6">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-dark mb-4">Seminar</h1>
-<!--        <p class="text-xl text-gray-600">Associate Professor, Macao Polytechnic University</p>-->
       </div>
     </div>
   </header>
 
+  <!-- 研讨会弹窗组件 -->
+  <div id="seminarModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modalTitle" class="text-2xl font-bold text-primary mb-4"></h2>
+      <p id="modalInfo" class="text-gray-700 mb-4"></p>
+      <p id="modalDescription" class="text-gray-600 mb-6"></p>
+      <div id="modalGallery" class="modal-gallery">
+        <!-- 图片将通过JavaScript动态加载 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 图片放大弹窗组件 -->
+  <div id="imageModal" class="image-modal">
+    <div class="image-modal-content">
+      <span class="close-image">&times;</span>
+      <span class="nav-arrow prev-arrow"><i class="fas fa-chevron-left"></i></span>
+      <img id="expandedImage" src="" alt="Expanded image">
+      <span class="nav-arrow next-arrow"><i class="fas fa-chevron-right"></i></span>
+    </div>
+  </div>
+
   <main>
     <div class="container mx-auto px-4 py-8">
-        <!-- 标题部分 -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">
-                <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
-                Student Seminars
-            </h1>
-            <p class="text-gray-600">Student Seminar Series Schedule</p>
-        </div>
+      <!-- 标题部分 -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+          <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+          Student Seminars
+        </h1>
+        <p class="text-gray-600">Student Seminar Series Schedule</p>
+      </div>
 
-        <!-- 详细安排表格 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full table-auto">
-                    <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                        <tr>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">No.</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Date</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Topic</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Speaker</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Venue</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="seminarTable" class="divide-y divide-gray-200">
-                        <!-- 表格内容将通过JavaScript动态生成 -->
-                    </tbody>
-                </table>
-            </div>
+      <!-- 详细安排表格 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto">
+            <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">No.</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Date</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Topic</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Speaker</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Venue</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Time</th>
+              </tr>
+            </thead>
+            <tbody id="seminarTable" class="divide-y divide-gray-200">
+              <!-- 表格内容将通过JavaScript动态生成 -->
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
 
     <script>
-        // 生成表格内容
-        function generateTable() {
-            const tableBody = document.getElementById('seminarTable');
+      // 生成学生研讨会表格内容
+      function generateStudentTable() {
+        const tableBody = document.getElementById('seminarTable');
 
-            seminarData.forEach((seminar, index) => {
-                const row = document.createElement('tr');
-                row.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200';
+        seminarData.forEach((seminar, index) => {
+          const row = document.createElement('tr');
+          row.className = `seminar-row ${index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200'}`;
+          row.dataset.index = index;
+          row.dataset.type = 'student';
 
-                row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
-                            ${seminar.Date}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
-                        <div class="font-medium">${seminar.Topic}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-user text-green-500 mr-2"></i>
-                            ${seminar.Speaker}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
-                            ${seminar.Venue}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-clock text-purple-500 mr-2"></i>
-                            ${seminar.Time}
-                        </div>
-                    </td>
-                `;
+          row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
+                    ${seminar.Date}
+                </div>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
+                <div class="font-medium">${seminar.Topic}</div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-user text-green-500 mr-2"></i>
+                    ${seminar.Speaker}
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                    ${seminar.Venue}
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-clock text-purple-500 mr-2"></i>
+                    ${seminar.Time}
+                </div>
+            </td>
+          `;
 
-                tableBody.appendChild(row);
-            });
-        }
+          tableBody.appendChild(row);
+        });
+      }
 
-        // 页面加载完成后生成表格
-        document.addEventListener('DOMContentLoaded', generateTable);
+      // 页面加载完成后生成表格
+      document.addEventListener('DOMContentLoaded', generateStudentTable);
     </script>
-
-
-
 
     <div class="container mx-auto px-4 py-8">
-        <!-- 标题部分 -->
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">
-                <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
-                Technical Seminars
-            </h1>
-            <p class="text-gray-600">Student Seminar Series Schedule</p>
-        </div>
+      <!-- 标题部分 -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">
+          <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+          Technical Seminars
+        </h1>
+        <p class="text-gray-600">Technical Seminar Series Schedule</p>
+      </div>
 
-        <!-- 详细安排表格 -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full table-auto">
-                    <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-                        <tr>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">No.</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Date</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Topic</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Speaker</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Venue</th>
-                            <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="seminarTable2" class="divide-y divide-gray-200">
-                        <!-- 表格内容将通过JavaScript动态生成 -->
-                    </tbody>
-                </table>
-            </div>
+      <!-- 详细安排表格 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto">
+            <thead class="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+              <tr>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">No.</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Date</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Topic</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Speaker</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Venue</th>
+                <th class="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Time</th>
+              </tr>
+            </thead>
+            <tbody id="seminarTable2" class="divide-y divide-gray-200">
+              <!-- 表格内容将通过JavaScript动态生成 -->
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
 
 
     <script>
-        // 生成表格内容
-        function generateTable() {
-            const tableBody = document.getElementById('seminarTable2');
+      // 生成技术研讨会表格内容
+      function generateTechnicalTable() {
+        const tableBody = document.getElementById('seminarTable2');
 
-            seminarData2.forEach((seminar, index) => {
-                const row = document.createElement('tr');
-                row.className = index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200';
+        seminarData2.forEach((seminar, index) => {
+          const row = document.createElement('tr');
+          row.className = `seminar-row ${index % 2 === 0 ? 'bg-white hover:bg-gray-50 transition-colors duration-200' : 'bg-gray-50 hover:bg-gray-100 transition-colors duration-200'}`;
+          row.dataset.index = index;
+          row.dataset.type = 'technical';
 
-                row.innerHTML = `
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
-                            ${seminar.Date}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
-                        <div class="font-medium">${seminar.Topic}</div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-user text-green-500 mr-2"></i>
-                            ${seminar.Speaker}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
-                            ${seminar.Venue}
-                        </div>
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <div class="flex items-center">
-                            <i class="fas fa-clock text-purple-500 mr-2"></i>
-                            ${seminar.Time}
-                        </div>
-                    </td>
-                `;
+          row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${seminar['No.']}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-day text-blue-500 mr-2"></i>
+                    ${seminar.Date}
+                </div>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-900 max-w-md">
+                <div class="font-medium">${seminar.Topic}</div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-user text-green-500 mr-2"></i>
+                    ${seminar.Speaker}
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-red-500 mr-2"></i>
+                    ${seminar.Venue}
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <div class="flex items-center">
+                    <i class="fas fa-clock text-purple-500 mr-2"></i>
+                    ${seminar.Time}
+                </div>
+            </td>
+          `;
 
-                tableBody.appendChild(row);
-            });
-        }
+          tableBody.appendChild(row);
+        });
+      }
 
-        // 页面加载完成后生成表格
-        document.addEventListener('DOMContentLoaded', generateTable);
+      // 页面加载完成后生成表格
+      document.addEventListener('DOMContentLoaded', generateTechnicalTable);
     </script>
 
+    <!-- 弹窗功能脚本 -->
+    <script>
+      // 获取弹窗元素
+      const modal = document.getElementById('seminarModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalInfo = document.getElementById('modalInfo');
+      const modalDescription = document.getElementById('modalDescription');
+      const modalGallery = document.getElementById('modalGallery');
+      const closeBtn = document.querySelector('.close-btn');
+
+      // 图片放大弹窗元素
+      const imageModal = document.getElementById('imageModal');
+      const expandedImage = document.getElementById('expandedImage');
+      const closeImageBtn = document.querySelector('.close-image');
+      const prevArrow = document.querySelector('.prev-arrow');
+      const nextArrow = document.querySelector('.next-arrow');
+
+      // 当前图片索引和图片列表
+      let currentImageIndex = 0;
+      let currentImages = [];
+
+      // 关闭研讨会弹窗函数
+      function closeModal() {
+        modal.style.display = 'none';
+        // 清空图片容器
+        modalGallery.innerHTML = '';
+        // 重置图片列表
+        currentImages = [];
+      }
+
+      // 关闭图片放大弹窗
+      function closeImageModal() {
+        imageModal.style.display = 'none';
+      }
+
+      // 显示上一张图片
+      function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+        expandedImage.src = currentImages[currentImageIndex];
+      }
+
+      // 显示下一张图片
+      function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+        expandedImage.src = currentImages[currentImageIndex];
+      }
+
+      // 点击关闭按钮关闭弹窗
+      closeBtn.addEventListener('click', closeModal);
+      closeImageBtn.addEventListener('click', closeImageModal);
+
+      // 点击箭头导航图片
+      prevArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrevImage();
+      });
+
+      nextArrow.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNextImage();
+      });
+
+      // 键盘导航
+      document.addEventListener('keydown', (e) => {
+        if (imageModal.style.display === 'flex') {
+          if (e.key === 'Escape') closeImageModal();
+          if (e.key === 'ArrowLeft') showPrevImage();
+          if (e.key === 'ArrowRight') showNextImage();
+        } else if (modal.style.display === 'block' && e.key === 'Escape') {
+          closeModal();
+        }
+      });
+
+      // 点击弹窗外部关闭弹窗
+      window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+        if (event.target === imageModal) {
+          closeImageModal();
+        }
+      });
+
+      // 点击表格行打开弹窗
+      document.addEventListener('click', (event) => {
+        const row = event.target.closest('.seminar-row');
+        if (row) {
+          const index = parseInt(row.dataset.index);
+          const type = row.dataset.type;
+          let seminar;
+
+          // 根据类型获取对应的研讨会数据
+          if (type === 'student') {
+            seminar = seminarData[index];
+          } else {
+            seminar = seminarData2[index];
+          }
+
+          // 填充弹窗内容
+          modalTitle.textContent = seminar.Topic;
+          modalInfo.innerHTML = `
+            <strong>Speaker:</strong> ${seminar.Speaker}<br>
+            <strong>Date:</strong> ${seminar.Date} ${seminar.Time}<br>
+            <strong>Venue:</strong> ${seminar.Venue}
+          `;
+
+          // 添加描述
+          // modalDescription.textContent = seminar.description || "No additional information available.";
+
+          // 加载图片
+          modalGallery.innerHTML = '';
+          currentImages = []; // 重置图片列表
+
+          if (seminar.images && seminar.images.length > 0) {
+            seminar.images.forEach((imgSrc, imgIndex) => {
+              currentImages.push(imgSrc); // 添加到图片列表
+
+              const img = document.createElement('img');
+              img.src = imgSrc;
+              img.alt = `Seminar image ${seminar['No.']}-${imgIndex + 1}`;
+              img.className = 'gallery-img';
+
+              // 图片点击放大
+              img.addEventListener('click', () => {
+                currentImageIndex = imgIndex;
+                expandedImage.src = imgSrc;
+                imageModal.style.display = 'flex';
+              });
+
+              // 添加图片加载失败的备用方案
+              img.onerror = function() {
+                this.src = '/seminar-images/default.jpg';
+                this.alt = 'Image not available';
+              };
+
+              modalGallery.appendChild(img);
+            });
+          } else {
+            const noImage = document.createElement('p');
+            noImage.textContent = ' ';
+            noImage.className = 'text-gray-500 col-span-full text-center py-4';
+            modalGallery.appendChild(noImage);
+          }
+
+          // 显示弹窗
+          modal.style.display = 'block';
+        }
+      });
+    </script>
 
   </main>
   <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-4 md:px-6">
-        <div class="flex justify-center">
-          <p class="text-gray-400 text-center text-sm">Copyright © Big Data Analytics Research Group, FCA @ Macao Polytechnic University. All rights reserved.</p>
-        </div>
+      <div class="flex justify-center">
+        <p class="text-gray-400 text-center text-sm">Copyright © Big Data Analytics Research Group, FCA @ Macao Polytechnic University. All rights reserved.</p>
       </div>
-
+    </div>
   </footer>
 
   <!-- JavaScript -->
